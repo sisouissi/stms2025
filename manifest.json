@@ -1,0 +1,21 @@
+{
+  "name": "Congrès STMS 2025",
+  "short_name": "STMS 2025",
+  "description": "Application pour le 8ème Congrès de la Société Tunisienne de Médecine du Sommeil.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#033238",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
