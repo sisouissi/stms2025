@@ -33,7 +33,7 @@ const MobileNavBar: React.FC<MobileNavBarProps> = ({ activeTab, setActiveTab }) 
     { key: 'programme', label: 'Programme', icon: <CalendarDays size={22} /> },
     { key: 'agenda', label: 'Agenda', icon: <CalendarCheck size={22} /> },
     { key: 'speakers', label: 'Orateurs', icon: <Users size={22} /> },
-    { key: 'committee', label: 'Comité', icon: <Users2 size={22} /> },
+    { key: 'committee', label: 'Comités', icon: <Users2 size={22} /> },
     { key: 'submission', label: 'Soumissions', icon: <FileText size={22} /> },
     { key: 'info', label: 'Infos', icon: <Info size={22} /> },
   ];

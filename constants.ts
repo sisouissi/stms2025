@@ -2,13 +2,55 @@
 
 import type { Session, Day } from './types';
 
-export interface ScientificCommitteeMember {
+export interface CommitteeMember {
   name: string;
-  role: 'Président' | 'Membre';
+  role: 'Présidente' | 'Membre';
 }
 
-// Data for the new congress is not available in the provided document.
-export const SCIENTIFIC_COMMITTEE_DATA: ScientificCommitteeMember[] = [];
+export const ORGANIZING_COMMITTEE_DATA: CommitteeMember[] = [
+  { name: 'Leila Douik El Gharbi', role: 'Présidente' },
+  { name: 'Ahmed Abdelghani', role: 'Membre' },
+  { name: 'Sonia Maalej', role: 'Membre' },
+  { name: 'Nadia Romdhane', role: 'Membre' },
+  { name: 'Chiraz Aichaouia', role: 'Membre' },
+  { name: 'Maher Abouda', role: 'Membre' },
+  { name: 'Sameh Msaed', role: 'Membre' },
+  { name: 'Rym Rafrafi', role: 'Membre' },
+  { name: 'Mohamed Turki', role: 'Membre' },
+  { name: 'Zouhair Souissi', role: 'Membre' }
+];
+
+export const SCIENTIFIC_COMMITTEE_DATA: CommitteeMember[] = [
+    { name: 'Sameh Msaad', role: 'Présidente' },
+    { name: 'Bouthaina Hammami', role: 'Membre' },
+    { name: 'Chiraz Mbarek', role: 'Membre' },
+    { name: 'Fatma Charfi', role: 'Membre' },
+    { name: 'Fatma Guezguez', role: 'Membre' },
+    { name: 'Fatma Kamoun', role: 'Membre' },
+    { name: 'Fida Allaya', role: 'Membre' },
+    { name: 'Hana Mrassi', role: 'Membre' },
+    { name: 'Houda Rouis', role: 'Membre' },
+    { name: 'Ibtihel Khouaja', role: 'Membre' },
+    { name: 'Ikram Aloulou', role: 'Membre' },
+    { name: 'Ikram Kammoun', role: 'Membre' },
+    { name: 'Imen Sahnoun', role: 'Membre' },
+    { name: 'Imene Magroun', role: 'Membre' },
+    { name: 'Ines Trabelsi', role: 'Membre' },
+    { name: 'Leila Abid', role: 'Membre' },
+    { name: 'Leila Triki', role: 'Membre' },
+    { name: 'Manel Maalej', role: 'Membre' },
+    { name: 'Mohamed Turki', role: 'Membre' },
+    { name: 'Nada Kotti', role: 'Membre' },
+    { name: 'Nadia Keskes', role: 'Membre' },
+    { name: 'Narjes Abid', role: 'Membre' },
+    { name: 'Rim Kamoun', role: 'Membre' },
+    { name: 'Saloua Jameleddine', role: 'Membre' },
+    { name: 'Samira Mhamdi', role: 'Membre' },
+    { name: 'Sana Aissa', role: 'Membre' },
+    { name: 'Sondes Briki', role: 'Membre' },
+    { name: 'Souha Kallel', role: 'Membre' }
+];
+
 
 export const SESSIONS_DATA: Session[] = [
     // Jeudi 9 octobre 2025

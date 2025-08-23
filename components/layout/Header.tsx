@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
     { key: 'programme', label: 'Programme' },
     { key: 'agenda', label: 'Mon Agenda' },
     { key: 'speakers', label: 'Orateurs' },
-    { key: 'committee', label: 'Comité' },
+    { key: 'committee', label: 'Comités' },
     { key: 'submission', label: 'Soumissions' },
     { key: 'info', label: 'Infos' },
   ];
