@@ -1,6 +1,5 @@
 
 
-
 import type { Session, Day } from './types';
 
 export interface ScientificCommitteeMember {
@@ -56,27 +55,48 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j1-3',
-      title: 'La polygraphie ventilatoire de A à Z',
-      startTime: new Date(2025, 9, 9, 10, 0),
-      endTime: new Date(2025, 9, 9, 18, 0),
+      title: 'Lecture experte des polygraphies ventilatoires – Adulte & Enfant',
+      startTime: new Date(2025, 9, 9, 9, 30),
+      endTime: new Date(2025, 9, 9, 17, 30),
       location: 'Salle B',
       speakers: [
-        { name: 'Imen SAHNOUN', specialty: 'Pneumologue', role: 'Service de Pneumolgie D - Hôpital Abderrahmen Mami Ariana' },
-        { name: 'Hana MRASSI', specialty: 'Pneumologue', role: 'Service de Pneumolgie I - Hôpital Abderrahmen Mami Ariana' },
-        { name: 'Ines TRABELSI', specialty: 'Pédiatre', role: "Service de Pédiatrie Pavillon 4 - Hôpital d'enfants Bab Saadoun Tunis" },
-        { name: 'Fatma GUEZGUEZ', specialty: 'Pneumologie' },
-        { name: 'Mohamed TURKI', specialty: 'Pneumologue', role: 'Past-Président de la STMS' }
+        { name: 'Imen SAHNOUN', specialty: 'Pneumologue' },
+        { name: 'Hana MRASSI', specialty: 'Pneumologue', role: 'Service de Pneumologie D - Hôpital Abderrahmen Mami Ariana' }
       ],
       theme: 'Formation',
       type: 'formation',
-      description: 'Journée de formations précongrès (2 sessions en parallèle).',
-      details: [],
+      description: 'Public : Résidents & médecins de toutes spécialités. Participants : 30 maximum.',
+      details: [
+        'Matinée – Adulte',
+        '9h30 – 9h45: Accueil, présentation & pré-test',
+        '9h45 – 10h10: Indications, mise en place & critères de qualité (démonstration live sur polygraphe Nox)',
+        '10h10 – 10h30: Reconnaissance des signaux : ventilation, efforts, oxymétrie, micro-éveils',
+        '10h30 – 10h50: Profils ventilatoires nocturnes & au-delà de l’IAH',
+        '10h50 – 11h10: Pause-café',
+        '11h10 – 11h30: Lecture en plénière d’un tracé adulte (démonstration guidée, commentaires en direct)',
+        '11h30 – 12h00: Lecture en plénière puis autonomie – Cas n°1 (SAHOS sévère) en sous-groupes',
+        '12h00 – 12h30: Lecture en plénière puis autonomie – Cas n°2 (SAHOS + SOH) en sous-groupes',
+        '12h30 – 13h00: Lecture en plénière puis autonomie – Cas n°3 (SAHCS sévère avec RCS)',
+        '13h00 – 14h00: Déjeuner',
+        '14h00 – 14h30: Atelier “Rédaction de rapport” à partir des cas lus',
+        'Après-midi – Adulte (suite)',
+        '14h30– 14h50: Atelier “Pièges & astuces” : artefacts et situations atypiques',
+        '14h50 – 15h05: Pause-café',
+        'Fin d’après-midi – Enfant',
+        '15h05 – 15h30: Particularités pédiatriques : indications, scorage, pièges',
+        '15h30 – 15h50: Lecture en plénière d’un tracé pédiatrique (démonstration guidée)',
+        '15h50 – 16h30: Lecture en plénière puis autonomie – Cas n°5 (SAHOS pédiatrique) en sous-groupes',
+        '16h30 – 16h50: Quiz interactif : “Pièges en polygraphie pédiatrique”',
+        '16h50 – 17h30: Post-test, remise des attestations & conclusion'
+      ],
       isParallel: true,
-      introduction: "Un atelier complet sur la polygraphie ventilatoire (PV), un outil de diagnostic essentiel pour les troubles respiratoires du sommeil. Cette session couvrira l'ensemble du processus, des indications de la PV à l'analyse critique des résultats pour une prise en charge optimale du patient.",
+      introduction: "Cette formation intensive a pour but de fournir une expertise pratique dans la lecture des polygraphies ventilatoires pour adultes et enfants. La méthodologie est axée sur la pratique avec des démonstrations, un travail en sous-groupes sur des cas réels, et un encadrement par des experts pour un feedback individualisé.",
       objectives: [
-        "Définir les indications et les limites de la polygraphie ventilatoire.",
-        "Optimiser la mise en place de l'équipement pour garantir la fiabilité des données.",
-        "Analyser et interpréter les courbes de PV pour diagnostiquer un SAHOS."
+        "Comprendre les spécificités techniques et cliniques de la polygraphie adulte et enfant.",
+        "Reconnaître et scorer correctement les événements respiratoires selon les critères AASM.",
+        "Savoir repérer les artefacts et interpréter les profils ventilatoires.",
+        "Rédiger un rapport structuré et pertinent.",
+        "Développer son autonomie de lecture à partir de cas réels."
       ]
     },
     {
@@ -580,8 +600,9 @@ export const SESSIONS_DATA: Session[] = [
       endTime: new Date(2025, 9, 11, 13, 0),
       location: 'Salle plénière',
       speakers: [
-        { name: 'Fatma CHARFI', specialty: 'Pédo-psychiatre', role: 'Chef de Service de Pédopsychiatrie Hôpital Razi Mannouba' },
-        { name: 'Randoline AYOUB', specialty: 'Pédo-psychiatre', role: 'Service de Pédo-psychiatrie - Hôpital Fatouma Bourguiba Monastir' }
+        { name: 'Fatma CHARFI', specialty: 'Pédo-psychiatre', role: 'Chef de Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' },
+        { name: 'Randoline AYOUB', specialty: 'Pédo-psychiatre', role: 'Service de Pédo-psychiatrie - Hôpital Fatouma Bourguiba Monastir' },
+        { name: 'Laures Meddouri', specialty: 'Pédo-psychiatre', role: 'Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' }
       ],
       theme: 'Pédiatrie',
       type: 'séance',
