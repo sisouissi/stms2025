@@ -101,11 +101,11 @@ const SessionModal: React.FC<SessionModalProps> = ({ session, onClose }) => {
             <div className="flex flex-wrap gap-3 p-6 border-t border-slate-200 bg-slate-50 rounded-b-2xl">
                 <button onClick={() => toggleFavorite(session.id)} className={`flex items-center justify-center gap-2 w-full sm:w-auto flex-1 px-4 py-2.5 rounded-lg font-semibold transition-colors ${isFavorite ? 'bg-rose-100 text-rose-600' : 'bg-slate-200 text-slate-700 hover:bg-slate-300'}`}>
                     <Heart size={16} fill={isFavorite ? 'currentColor' : 'none'}/>
-                    {isFavorite ? 'Dans vos favoris' : 'Ajouter aux favoris'}
+                    Favoris
                 </button>
                 <button onClick={() => { isInAgenda ? removeFromAgenda(session.id) : addToAgenda(session); }} className={`flex items-center justify-center gap-2 w-full sm:w-auto flex-1 px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 ${isInAgenda ? 'bg-[#d9e5e7] text-[#033238]' : 'bg-gradient-to-br from-cyan-400 to-blue-600 text-white hover:from-cyan-500 hover:to-blue-700'}`}>
                     {isInAgenda ? <Check size={16}/> : <Plus size={16}/>}
-                    {isInAgenda ? 'Retirer de l\'agenda' : 'Ajouter à l\'agenda'}
+                    {isInAgenda ? 'Dans l\'agenda' : 'Ajouter'}
                 </button>
             </div>
           </>

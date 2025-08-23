@@ -5,7 +5,7 @@ import CountdownDisplay from '../components/ui/CountdownDisplay';
 import SearchResults from '../components/home/SearchResults';
 import { SESSIONS_DATA } from '../constants';
 import type { Session } from '../types';
-import { Search, Download, Calendar, MapPin, Mail, FileText, Edit, CheckCircle2 } from 'lucide-react';
+import { Search, Download, Calendar, MapPin, Mail, FileText, Edit, CheckCircle2, Share2, Check } from 'lucide-react';
 import { usePWAInstall } from '../context/PWAInstallContext';
 import LiveSessions from '../components/home/LiveSessions';
 import DailyBriefing from '../components/home/DailyBriefing';
@@ -19,6 +19,7 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
     const [searchQuery, setSearchQuery] = useState('');
     const { canInstall, install } = usePWAInstall();
     const [liveSessions, setLiveSessions] = useState<{ current: Session[]; next: Session | null }>({ current: [], next: null });
+    const [isAppUrlCopied, setIsAppUrlCopied] = useState(false);
 
     useEffect(() => {
         const sortedSessions = [...SESSIONS_DATA].sort((a, b) => a.startTime.getTime() - b.startTime.getTime());
@@ -61,20 +62,58 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
         onSessionSelect(session);
     };
 
+    const handleShareApp = async () => {
+        if (isAppUrlCopied) return;
+        
+        const correctAppUrl = 'https://stms2025.vercel.app/';
+
+        const shareData = {
+          title: 'Congrès STMS 2025',
+          text: 'Découvrez l\'application du 8ème Congrès de la Société Tunisienne de Médecine du Sommeil ! #STMS2025',
+          url: correctAppUrl,
+        };
+    
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (error) {
+            if ((error as DOMException).name !== 'AbortError') {
+              console.error('Erreur lors du partage :', error);
+            }
+          }
+        } else {
+          try {
+            await navigator.clipboard.writeText(shareData.url);
+            setIsAppUrlCopied(true);
+            setTimeout(() => setIsAppUrlCopied(false), 2500);
+          } catch (err) {
+            console.error('Erreur de copie:', err);
+            alert("La fonction de partage n'est pas disponible. Veuillez copier le lien manuellement.");
+          }
+        }
+    };
+
     return (
     <>
       <div className="relative bg-gradient-to-b from-white to-slate-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
           <div className="grid grid-cols-1 gap-12 items-center">
-            <div className="space-y-8 lg:max-w-3xl lg:mx-auto">
+            <div className="space-y-8 lg:max-w-4xl lg:mx-auto">
               
               <DailyBriefing />
 
-              <div className="text-center">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 leading-tight tracking-tighter">
-                  8<sup>ème</sup> Congrès de Médecine du Sommeil
-                </h1>
-                <p className="text-lg text-slate-600">9 - 11 Octobre 2025 | Hôtel LE ROYAL, Hammamet</p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-4 text-center sm:text-left">
+                <img 
+                  src="https://i.imgur.com/hUULOJ4.png" 
+                  alt="Logo STMS" 
+                  className="h-24 md:h-28 lg:h-32 object-contain" 
+                />
+                <div>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-3 leading-tight tracking-tighter">
+                    8<sup>ème</sup> Congrès de Médecine du Sommeil
+                  </h1>
+                  <p className="text-lg text-slate-600">9 - 11 Octobre 2025 | Hôtel LE ROYAL, Hammamet</p>
+                </div>
               </div>
 
               <div className="relative">
@@ -106,7 +145,7 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
                     <Calendar size={20} />
                     <span className="font-semibold">Programme Complet</span>
                 </button>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <a
                         href="https://activevents.com.tn/?mayor=inscription_srms"
                         target="_blank"
@@ -132,6 +171,14 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
                         <Download size={20} />
                         <span className="font-semibold">Télécharger le Programme</span>
                     </a>
+                    <button
+                        onClick={handleShareApp}
+                        disabled={isAppUrlCopied}
+                        className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm text-[#033238] px-6 py-3.5 rounded-full shadow-md hover:shadow-lg border border-slate-200 hover:bg-white transition-all duration-300 transform hover:scale-105 disabled:opacity-70"
+                    >
+                        {isAppUrlCopied ? <Check size={20} /> : <Share2 size={20} />}
+                        <span className="font-semibold">{isAppUrlCopied ? 'Lien copié !' : 'Partager l\'app'}</span>
+                    </button>
                 </div>
                 {canInstall && (
                   <button

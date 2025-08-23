@@ -40,9 +40,9 @@ const SpeakerSessionsModal: React.FC<SpeakerSessionsModalProps> = ({ speaker, on
                     {speaker.role && <p className="text-sm text-slate-600 mt-1">{speaker.role}</p>}
                 </div>
             </div>
-          <button onClick={onClose} className="text-slate-500 hover:text-slate-700 p-2 -m-2 rounded-full hover:bg-slate-200 transition-colors">
-            <X size={24} />
-          </button>
+            <button onClick={onClose} aria-label="Fermer" className="text-slate-500 hover:text-slate-700 p-2 -m-2 rounded-full hover:bg-slate-200 transition-colors">
+              <X size={24} />
+            </button>
         </div>
         <div className="p-6 overflow-y-auto">
             <h3 className="text-lg font-semibold text-slate-900 mb-4">Interventions ({speakerSessions.length})</h3>
