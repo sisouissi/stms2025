@@ -4,14 +4,17 @@ const urlsToCache = [
   './index.html',
   './index.tsx',
   './manifest.json',
+  // Icon
+  'https://i.imgur.com/hUULOJ4.png',
   // Key external assets
   'https://cdn.tailwindcss.com',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+  'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700&display=swap',
   'https://esm.sh/react-dom@^19.1.1/',
   'https://esm.sh/react@^19.1.1/',
   'https://esm.sh/react@^19.1.1',
   'https://esm.sh/lucide-react@0.418.0',
   'https://esm.sh/groq-sdk',
+  'https://esm.sh/@google/genai@^1.15.0'
 ];
 
 self.addEventListener('install', (event) => {
