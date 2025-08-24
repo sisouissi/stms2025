@@ -75,10 +75,12 @@ function doGet(e) {
         question: row[2],
         status: row[3]
       };
-    }).filter(q => q.sessionId === 'livestream');
+    })
+    .filter(q => q.sessionId === 'livestream')
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()); // Tri robuste pour avoir les plus récents en premier
 
     return ContentService
-      .createTextOutput(JSON.stringify({ success: true, questions: questions.reverse() })) // Les plus récentes en premier
+      .createTextOutput(JSON.stringify({ success: true, questions: questions }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch(error) {
     return ContentService
@@ -93,6 +95,7 @@ function doPost(e) {
   
   try {
     const requestData = JSON.parse(e.postData.contents);
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
     
     if (requestData.action === 'addQuestion') {
       const { sessionId, text } = requestData;
@@ -101,7 +104,6 @@ function doPost(e) {
          throw new Error("Le texte de la question ne peut pas être vide.");
       }
 
-      const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
       const newRow = [new Date(), sessionId, text.trim(), 'new'];
       sheet.appendRow(newRow);
 
@@ -110,8 +112,22 @@ function doPost(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
     
-    // Vous pouvez ajouter d'autres actions ici, par ex. pour mettre à jour le statut
-    // if (requestData.action === 'updateStatus') { ... }
+    if (requestData.action === 'deleteQuestion') {
+      const { questionId } = requestData;
+      if (!questionId || typeof questionId !== 'number' || questionId < 2) {
+        throw new Error("ID de question invalide fourni.");
+      }
+      
+      if (questionId > sheet.getLastRow()) {
+        throw new Error("La question n'existe plus ou a déjà été supprimée.");
+      }
+
+      sheet.deleteRow(questionId);
+      
+      return ContentService
+        .createTextOutput(JSON.stringify({ success: true, message: 'Question supprimée avec succès.' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
 
     throw new Error("Action non valide spécifiée.");
 
