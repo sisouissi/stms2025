@@ -1,8 +1,8 @@
-const CACHE_NAME = 'cnp2025-pwa-cache-v4'; // Increment version
+const CACHE_NAME = 'cnp2025-pwa-cache-v5'; // Increment version
 const urlsToCache = [
   '/',
   '/index.html',
-  // Note: Retiré /index.tsx, /index.css, /manifest.json car ils ne sont pas des ressources statiques directes
+  '/manifest.json', // Crucial for PWA functionality
 ];
 
 // URLs externes à mettre en cache séparément
