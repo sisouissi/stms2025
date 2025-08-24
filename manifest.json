@@ -4,22 +4,25 @@
   "description": "Application pour le 8ème Congrès de la Société Tunisienne de Médecine du Sommeil.",
   "start_url": "/",
   "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#1e293b",
   "orientation": "portrait-primary",
-  "background_color": "#ffffff",
-  "theme_color": "#033238",
+  "scope": "/",
   "icons": [
     {
       "src": "https://i.imgur.com/hUULOJ4.png",
-      "type": "image/png",
       "sizes": "192x192",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
       "src": "https://i.imgur.com/hUULOJ4.png",
-      "type": "image/png",
       "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["medical", "education", "conference"]
+  "categories": ["medical", "education", "conference"],
+  "lang": "fr",
+  "prefer_related_applications": false
 }
