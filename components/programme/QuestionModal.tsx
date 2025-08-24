@@ -1,31 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Session } from '../../types';
-import { X, ExternalLink } from 'lucide-react';
+import { X, Send, Loader, CheckCircle } from 'lucide-react';
 
 interface QuestionModalProps {
   session: Session;
   onClose: () => void;
 }
 
-// INSTRUCTIONS POUR L'UTILISATEUR :
-// 1. Créez un Google Form avec des champs pour la question et le nom (optionnel).
-// 2. Allez dans "Envoyer" > icône de lien (🔗), et copiez le lien.
-// 3. Optionnel mais recommandé : Pour pré-remplir le titre de la session :
-//    a. Allez dans le menu "..." > "Obtenir le lien pré-rempli".
-//    b. Remplissez le champ correspondant au titre de la session avec le texte `SESSION_TITLE_PLACEHOLDER`.
-//    c. Cliquez sur "Obtenir le lien" et copiez-le.
-// 4. Remplacez l'URL ci-dessous par votre lien.
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform?usp=pp_url";
-
+type SubmissionStatus = 'idle' | 'loading' | 'success' | 'error';
 
 const QuestionModal: React.FC<QuestionModalProps> = ({ session, onClose }) => {
-    
-    // Si vous utilisez un lien pré-rempli, décommentez la ligne ci-dessous et assurez-vous que votre URL
-    // contient une entrée comme `...&entry.12345=SESSION_TITLE_PLACEHOLDER`
-    // const formUrl = GOOGLE_FORM_URL.replace('SESSION_TITLE_PLACEHOLDER', encodeURIComponent(session.title));
-    
-    // Ligne à commenter si vous utilisez un lien pré-rempli :
-    const formUrl = GOOGLE_FORM_URL; 
+    const [questionText, setQuestionText] = useState('');
+    const [status, setStatus] = useState<SubmissionStatus>('idle');
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!questionText.trim()) return;
+
+        setStatus('loading');
+        setError('');
+
+        try {
+            const response = await fetch('./api/questions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    action: 'addQuestion',
+                    sessionId: session.id,
+                    text: questionText,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || result.success === false) {
+                throw new Error(result.error || 'Une erreur est survenue lors de l\'envoi.');
+            }
+
+            setStatus('success');
+            setQuestionText('');
+            setTimeout(() => {
+                onClose();
+            }, 2000);
+
+        } catch (err) {
+            setStatus('error');
+            setError(err instanceof Error ? err.message : 'Impossible de se connecter au serveur.');
+            console.error(err);
+        }
+    };
 
     return (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[60] p-4 animate-fade-in" onClick={onClose}>
@@ -38,21 +62,50 @@ const QuestionModal: React.FC<QuestionModalProps> = ({ session, onClose }) => {
                     </button>
                 </div>
                 
-                <div className="p-8 text-center">
-                    <p className="text-slate-600 mb-6">
-                        Pour garantir une expérience fluide et fiable, nous utilisons Google Forms pour recueillir les questions.
-                        Cliquez sur le bouton ci-dessous pour ouvrir le formulaire dans un nouvel onglet.
-                    </p>
-                    <a
-                        href={formUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-br from-cyan-400 to-blue-600 text-white px-8 py-4 rounded-lg hover:from-cyan-500 hover:to-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                        <ExternalLink size={20} />
-                        Ouvrir le formulaire de question
-                    </a>
-                </div>
+                {status === 'success' ? (
+                    <div className="p-12 text-center flex flex-col items-center justify-center">
+                        <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                        <h3 className="text-lg font-semibold text-slate-800">Question envoyée !</h3>
+                        <p className="text-slate-500 mt-1">Merci pour votre participation.</p>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit}>
+                        <div className="p-6">
+                            <label htmlFor="question-textarea" className="sr-only">Votre question</label>
+                            <textarea
+                                id="question-textarea"
+                                value={questionText}
+                                onChange={(e) => setQuestionText(e.target.value)}
+                                placeholder="Saisissez votre question ici..."
+                                className="w-full h-32 p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
+                                disabled={status === 'loading'}
+                                required
+                            />
+                            {status === 'error' && (
+                                <p className="text-sm text-rose-600 mt-2">{error}</p>
+                            )}
+                        </div>
+                        <div className="px-6 pb-6">
+                            <button
+                                type="submit"
+                                disabled={status === 'loading' || !questionText.trim()}
+                                className="w-full flex items-center justify-center gap-3 bg-gradient-to-br from-cyan-400 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-cyan-500 hover:to-blue-700 transition-all duration-300 font-semibold shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                            >
+                                {status === 'loading' ? (
+                                    <>
+                                        <Loader className="animate-spin" size={20} />
+                                        <span>Envoi...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send size={20} />
+                                        <span>Envoyer ma question</span>
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    </form>
+                )}
             </div>
         </div>
     );
