@@ -32,25 +32,24 @@
 //    - Choisissez votre compte Google.
 //    - Vous verrez un avertissement "Google n'a pas validé cette application". C'est normal. Cliquez sur "Paramètres avancés" puis sur "Accéder à [Nom de votre projet] (non sécurisé)".
 //    - Accordez les permissions demandées.
-//    - Une fois le déploiement terminé, une URL se terminant par `/exec` vous sera fournie. **Copiez cette URL**. C'est l'URL de votre application web.
+//    - Une fois le déploiement terminé, une URL se terminant par `/exec` vous sera fournie. **Copiez cette URL**.
 //
 // 5. CONFIGURER LA VARIABLE D'ENVIRONNEMENT :
 //    - Dans votre projet Vercel (ou autre plateforme d'hébergement), créez une nouvelle variable d'environnement nommée `GOOGLE_APPS_SCRIPT_URL`.
 //    - Collez l'URL que vous venez de copier comme valeur pour cette variable.
 //    - Redéployez votre projet pour que la variable soit prise en compte.
 //
-// --- TROUBLESHOOTING / DÉPANNAGE ---
+// --- MISE À JOUR DU SCRIPT (ACTION REQUISE MAINTENANT) ---
+// Si vous modifiez le code ci-dessous, vous devez redéployer pour que les changements prennent effet.
+// - Allez dans "Déployer" > "Gérer les déploiements".
+// - Sélectionnez votre déploiement actif et cliquez sur l'icône de crayon (Modifier).
+// - Dans la liste déroulante "Version", choisissez **"Nouvelle version"**.
+// - Cliquez sur **"Déployer"**.
 //
-// **Erreur 404 pendant l'autorisation ("The requested URL was not found") :**
-// - Cette erreur est rare et suggère un problème avec le projet de script lui-même.
-// - **Solution :** Essayez de redéployer. Allez dans "Déployer" > "Gérer les déploiements", supprimez l'ancien déploiement, puis créez un "Nouveau déploiement". Si le problème persiste, le plus simple est de recommencer avec une nouvelle feuille de calcul et un nouveau projet de script.
-//
+// --- DÉPANNAGE ---
 // **L'application affiche "Réponse inattendue du service de questions..." :**
 // - C'est l'erreur la plus courante. Elle signifie que le script n'est pas accessible publiquement.
-// - **Solution :** Vérifiez votre déploiement. Allez dans "Déployer" > "Gérer les déploiements", cliquez sur votre déploiement actif. Assurez-vous que le paramètre "Qui a accès" est bien réglé sur **"N'importe qui"** et non sur "N'importe qui avec un compte Google" ou "Moi uniquement". Si vous corrigez ce paramètre, vous devez créer un **nouveau déploiement** pour que la modification soit prise en compte.
-//
-// **Mes modifications du script ne fonctionnent pas :**
-// - Chaque fois que vous modifiez le code du script, vous devez créer un **nouveau déploiement** pour publier les changements. Aller dans "Déployer" > "Nouveau déploiement".
+// - **Solution :** Vérifiez votre déploiement. Allez dans "Déployer" > "Gérer les déploiements", cliquez sur votre déploiement actif. Assurez-vous que le paramètre "Qui a accès" est bien réglé sur **"N'importe qui"**. Si vous corrigez ce paramètre, vous devez redéployer (voir instructions de mise à jour ci-dessus).
 //
 // --- DÉBUT DU CODE À COPIER DANS GOOGLE APPS SCRIPT ---
 
@@ -59,32 +58,39 @@ const SHEET_NAME = 'Questions';
 function doGet(e) {
   try {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-    // On ignore la première ligne (en-têtes)
+    // S'il n'y a que la ligne d'en-tête (ou moins), retourner un tableau vide.
     if (sheet.getLastRow() < 2) {
        return ContentService
         .createTextOutput(JSON.stringify({ success: true, questions: [] }))
         .setMimeType(ContentService.MimeType.JSON);
     }
+    // On récupère toutes les lignes de données (de la ligne 2 à la fin)
     const data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 4).getValues();
 
     const questions = data.map((row, index) => {
+      // S'assurer que la ligne n'est pas vide pour éviter les erreurs
+      if (!row || row[2] === '') {
+        return null;
+      }
       return {
-        id: index + 2, // Le numéro de ligne comme ID unique
+        id: index + 2, // Le numéro de ligne est un ID stable et unique
         timestamp: row[0],
         sessionId: row[1],
         question: row[2],
         status: row[3]
       };
     })
-    .filter(q => q.sessionId === 'livestream')
-    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()); // Tri robuste pour avoir les plus récents en premier
+    .filter(q => q !== null) // Retirer les lignes vides qui auraient pu être lues
+    .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()); // Trier pour voir les plus récents en premier
 
     return ContentService
       .createTextOutput(JSON.stringify({ success: true, questions: questions }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch(error) {
+    // Log l'erreur pour un meilleur débogage côté Google Script
+    console.error('Erreur dans doGet:', error);
     return ContentService
-      .createTextOutput(JSON.stringify({ success: false, error: error.message }))
+      .createTextOutput(JSON.stringify({ success: false, error: error.message, stack: error.stack }))
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
@@ -163,7 +169,15 @@ export default async function handler(request, response) {
   }
 
   try {
-    const scriptResponse = await fetch(SCRIPT_URL, {
+    const scriptUrlWithParams = new URL(SCRIPT_URL);
+    if (request.method === 'GET' && request.url) {
+        const requestUrl = new URL(request.url, `http://${request.headers.host}`);
+        requestUrl.searchParams.forEach((value, key) => {
+            scriptUrlWithParams.searchParams.set(key, value);
+        });
+    }
+
+    const scriptResponse = await fetch(scriptUrlWithParams.toString(), {
       method: request.method,
       headers: {
         'Content-Type': 'application/json',
@@ -172,32 +186,21 @@ export default async function handler(request, response) {
       redirect: 'follow'
     });
 
-    // Check for non-OK responses first.
     if (!scriptResponse.ok) {
         const errorText = await scriptResponse.text();
         console.error(`Google Apps Script returned a non-OK status (${scriptResponse.status}): ${errorText}`);
         return sendJson(response, scriptResponse.status, { error: `Le service de questions a retourné une erreur (${scriptResponse.status}).` });
     }
 
-    // IMPORTANT FIX: Check the content-type header. Google Apps Script can return a 200 OK with an HTML login page
-    // if the permissions are set incorrectly ('Anyone with a Google account' instead of 'Anyone').
     const contentType = scriptResponse.headers.get('content-type');
     if (!contentType || !contentType.includes('application/json')) {
         const responseSample = await scriptResponse.text();
         console.error(`Google Apps Script returned an invalid content-type: ${contentType}. This may indicate a permission error. Response starts with: ${responseSample.substring(0, 200)}`);
         return sendJson(response, 500, { error: 'Réponse inattendue du service de questions. Vérifiez les permissions du script Google.' });
     }
-
-    // If we are here, we expect valid JSON.
-    const responseText = await scriptResponse.text();
-    try {
-        const result = JSON.parse(responseText);
-        return sendJson(response, 200, result);
-    } catch (e) {
-        // This catch block handles cases where the content-type is JSON but the body is malformed.
-        console.error('Failed to parse JSON from Google Apps Script. Response was:', responseText);
-        return sendJson(response, 500, { error: 'Le service de questions a retourné une réponse JSON invalide.' });
-    }
+    
+    const result = await scriptResponse.json();
+    return sendJson(response, 200, result);
 
   } catch (error) {
       console.error('Error proxying request to Google Apps Script:', error);
