@@ -1,9 +1,10 @@
 const CACHE_NAME = 'cnp2025-pwa-cache-v1';
 const urlsToCache = [
-  './',
-  './index.html',
-  './index.tsx',
-  './manifest.json',
+  '/',
+  '/index.html',
+  '/index.tsx',
+  '/manifest.json',
+  '/index.css',
   // Icon
   'https://i.imgur.com/hUULOJ4.png',
   // Key external assets
@@ -23,7 +24,8 @@ self.addEventListener('install', (event) => {
       .then((cache) => {
         console.log('Opened cache');
         const promises = urlsToCache.map(url => {
-            return cache.add(url).catch(err => console.warn(`Failed to cache ${url}: ${err}`));
+            const request = new Request(url, {mode: 'no-cors'});
+            return cache.add(request).catch(err => console.warn(`Failed to cache ${url}: ${err}`));
         });
         return Promise.all(promises);
       })
