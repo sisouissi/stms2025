@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   }, []);
 
   const navItems: { key: Tab; label: string }[] = [
-    { key: 'home', label: 'Home' },
+    { key: 'home', label: 'Accueil' },
     { key: 'programme', label: 'Programme' },
     { key: 'agenda', label: 'Mon Agenda' },
     { key: 'speakers', label: 'Orateurs' },

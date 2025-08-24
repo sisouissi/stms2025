@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Tab } from '../App';
 import { ExternalLink, Calendar, Info, FileText } from 'lucide-react';
@@ -42,7 +43,7 @@ const SubmissionPage: React.FC<SubmissionPageProps> = ({ setActiveTab }) => {
               <FileText className="w-12 h-12 text-[#033238] mx-auto mb-4" />
               <h2 className="text-2xl font-bold text-slate-800 mb-4">Soumettez votre abstract</h2>
               <p className="text-slate-600 max-w-xl mx-auto mb-4">
-                La soumission des travaux scientifiques (Communications orales, communications affichées, protocoles de recherche) se fait exclusively en ligne via la plateforme JotForm.
+                La soumission des travaux scientifiques (Communications orales, communications affichées, protocoles de recherche) se fait exclusivement en ligne via la plateforme JotForm.
               </p>
                <div className="flex justify-center mb-6">
                   <a 
