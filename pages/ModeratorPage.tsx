@@ -24,7 +24,7 @@ const ModeratorPage: React.FC<ModeratorPageProps> = ({ onExit }) => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('/api/questions?sessionId=livestream-main');
+      const response = await fetch('/api/questions');
       const data = await response.json();
       if (!response.ok || !data.success) {
         throw new Error(data.error || 'Erreur lors de la récupération des questions.');
