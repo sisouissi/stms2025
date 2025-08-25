@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Tab } from '../../App';
-import { Home, CalendarDays, CalendarCheck, Users, Info, Youtube, Shield } from 'lucide-react';
+import { Home, CalendarDays, CalendarCheck, Users, Info, Youtube, Shield, Award } from 'lucide-react';
 
 interface MobileNavBarProps {
   activeTab: Tab;
@@ -43,6 +43,7 @@ const MobileNavBar: React.FC<MobileNavBarProps> = ({ activeTab, setActiveTab, is
     { key: 'programme', label: 'Programme', icon: <CalendarDays size={22} /> },
     { key: 'agenda', label: 'Agenda', icon: <CalendarCheck size={22} /> },
     { key: 'speakers', label: 'Orateurs', icon: <Users size={22} /> },
+    { key: 'committee', label: 'Comités', icon: <Award size={22} /> },
     { key: 'info', label: 'Infos', icon: <Info size={22} /> },
   ];
 
