@@ -356,11 +356,7 @@ export const SESSIONS_DATA: Session[] = [
       startTime: new Date(2025, 9, 10, 13, 0),
       endTime: new Date(2025, 9, 10, 14, 30),
       location: 'Salle A',
-      speakers: [
-        { name: 'Soumaya Ben Saad', specialty: 'Modérateur' },
-        { name: 'Ibtihel khouaja', specialty: 'Modérateur' },
-        { name: 'Saoussen Yaacoub', specialty: 'Modérateur' }
-      ],
+      speakers: [],
       theme: 'Recherche',
       type: 'communications',
       description: '',
@@ -405,7 +401,7 @@ export const SESSIONS_DATA: Session[] = [
       ],
       theme: 'SAHOS',
       type: 'séance',
-      description: 'Modérateurs : HABIB GHEDIRA, OLFA BERRICH',
+      description: '',
       details: [
         'C4 : Nouveautés thérapeutiques dans le couple obésité-sommeil - Zinet MARRAKCHI',
         'C5 : SAHOS : l\'espoir de nouveaux médicaments efficaces - Samira MHAMDI',
@@ -444,7 +440,7 @@ export const SESSIONS_DATA: Session[] = [
       ],
       theme: 'Insomnie',
       type: 'séance',
-      description: 'Modérateurs : MAHER ABOUDA, SFAX, MONASTIR...',
+      description: '',
       details: [
         'C7: Nouveaux traitements médicamenteux de l\'insomnie - Rim RAFRAFI',
         'C8: Hypersomnie centrale - Isabelle ARNULF'
@@ -605,7 +601,7 @@ export const SESSIONS_DATA: Session[] = [
       ],
       theme: 'Neurologie',
       type: 'séance',
-      description: 'Une association dangereuse (Modérateurs : SOUSSE,TUNIS, SFAX des NEUROLOGUES...)',
+      description: 'Une association dangereuse',
       details: [
         'C10 : Sommeil et épilepsie : des interactions réciproques - Fatma KAMMOUN',
         'C11 : Troubles du comportement du sommeil paradoxal (TCSP) : un symptôme avant-coureur des maladies neurodégénératives ? - Amina GARGOURI'
@@ -648,7 +644,7 @@ export const SESSIONS_DATA: Session[] = [
       ],
       theme: 'Pédiatrie',
       type: 'séance',
-      description: 'Modérateurs : INES TRABELSI, pedopsychiatre...',
+      description: '',
       details: [
         'C12: Insomnie chez l\'enfant et l\'adolescent : causes et solutions - Fatma CHARFI',
         'C13 : Troubles du sommeil et TDAH : l\'œuf ou la poule ? - Randoline AYOUB'
