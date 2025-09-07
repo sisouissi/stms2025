@@ -1,5 +1,3 @@
-
-
 import React, { useState, useMemo, useEffect } from 'react';
 import type { Tab } from '../App';
 import type { Filters, Session } from '../types';
@@ -193,7 +191,7 @@ const ProgrammePage: React.FC<ProgrammePageProps> = ({ setActiveTab, searchSelec
 
         <div className="mb-6">
             <h2 className="text-2xl font-bold text-slate-800">{selectedDay === 'all' ? 'Programme Complet' : DAYS.find(d => d.key === selectedDay)?.label}</h2>
-            <p className="text-slate-500">{selectedDay === 'all' ? '27 - 29 Novembre 2025' : DAYS.find(d => d.key === selectedDay)?.date}</p>
+            <p className="text-slate-500">{selectedDay === 'all' ? '9 - 11 Octobre 2025' : DAYS.find(d => d.key === selectedDay)?.date}</p>
         </div>
 
         {viewMode === 'scheduler' ? 
