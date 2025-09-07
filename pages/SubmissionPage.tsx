@@ -16,7 +16,7 @@ const CountdownItem: React.FC<{ value: number; label: string }> = ({ value, labe
 );
 
 const SubmissionCountdown: React.FC = () => {
-    const targetDate = new Date('2025-09-07T23:59:59');
+    const targetDate = new Date('2025-09-15T23:59:59');
     const timeLeft = useCountdown(targetDate);
 
     return (
@@ -61,7 +61,7 @@ const SubmissionPage: React.FC<SubmissionPageProps> = ({ setActiveTab }) => {
           <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-8 text-center">
              <Calendar className="w-12 h-12 text-rose-500 mx-auto mb-4" />
              <h3 className="text-xl font-semibold text-slate-800 mb-2">Date limite de soumission</h3>
-             <p className="text-slate-600 text-lg font-medium mb-2">07 Septembre 2025 à minuit</p>
+             <p className="text-slate-600 text-lg font-medium mb-2">15 Septembre 2025 à minuit</p>
              <p className="text-slate-500 text-sm mb-4">Temps restant :</p>
              <SubmissionCountdown />
           </div>

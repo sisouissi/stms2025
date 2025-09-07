@@ -293,7 +293,7 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j2-3',
-      title: 'Hypoventilation et hypoxémie liées au sommeil chez l\'adulte',
+      title: 'Hypoventilation et hypoxémie liées au sommeil chez l\'adulte (Séance en collaboration avec la STMRA)',
       startTime: new Date(2025, 9, 10, 11, 0),
       endTime: new Date(2025, 9, 10, 12, 30),
       location: 'Salle plénière',
@@ -304,7 +304,7 @@ export const SESSIONS_DATA: Session[] = [
       ],
       theme: 'Hypoventilation',
       type: 'séance',
-      description: 'Séance en collaboration avec la STMRA',
+      description: '',
       details: [
         'C1: Hypoxémie liée au sommeil : de la physiologie à la pratique clinique - Maher ABOUDA',
         'C2: Dépister les troubles respiratoires du sommeil chez les patients atteints de FPI : quand, comment et pourquoi ? - Sonia MAALEJ',
