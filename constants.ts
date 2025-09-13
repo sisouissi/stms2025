@@ -81,7 +81,9 @@ export const SESSIONS_DATA: Session[] = [
       speakers: [
         { name: 'Fida ALLAYA', specialty: 'Neuro-physiologiste', role: 'CHU de Clermont-Ferrand France' },
         { name: 'Ikram ALOULOU', specialty: 'Physiologiste', role: 'Service de Physiologie - Hôpital Abderrahmen Mami Ariana' },
-        { name: 'Chiraz AICHAOUIA', specialty: 'Pneumologue', role: 'Service de Pneumologie - Hôpital Militaire de Tunis' }
+        { name: 'Chiraz AICHAOUIA', specialty: 'Pneumologue', role: 'Service de Pneumologie - Hôpital Militaire de Tunis' },
+        { name: 'Ines MOUSSA', specialty: 'Pneumologue', role: 'Service de Pneumolgie D - Hôpital Abderrahmen Mami Ariana' },
+        { name: 'Istabrak ABDELKAFI', specialty: 'Pneumologie' }
       ],
       theme: 'Formation',
       type: 'formation',
@@ -97,13 +99,16 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j1-3',
-      title: 'Lecture experte des polygraphies ventilatoires – Adulte & Enfant',
+      title: 'La polygraphie ventilatoire de A à Z',
       startTime: new Date(2025, 9, 9, 9, 30),
       endTime: new Date(2025, 9, 9, 17, 30),
       location: 'Salle B',
       speakers: [
         { name: 'Imen SAHNOUN', specialty: 'Pneumologue' },
-        { name: 'Hana MRASSI', specialty: 'Pneumologue', role: 'Service de Pneumologie D - Hôpital Abderrahmen Mami Ariana' }
+        { name: 'Hana MRASSI', specialty: 'Pneumologue', role: 'Service de Pneumologie D - Hôpital Abderrahmen Mami Ariana' },
+        { name: 'Ines TRABELSI', specialty: 'Pédiatre', role: "Service de Pédiatrie Pavillon 4 - Hôpital d'enfants Bab Saadoun Tunis" },
+        { name: 'Narjess ABID', specialty: '' },
+        { name: 'Mohamed TURKI', specialty: 'Pneumologue', role: 'Past-Président de la STMS' },
       ],
       theme: 'Formation',
       type: 'formation',
@@ -208,7 +213,9 @@ export const SESSIONS_DATA: Session[] = [
       startTime: new Date(2025, 9, 10, 9, 0),
       endTime: new Date(2025, 9, 10, 10, 30),
       location: 'Salle B',
-      speakers: [],
+      speakers: [
+        { name: 'Christophe JOIGNEAU', specialty: '' }
+      ],
       theme: 'VNI',
       type: 'atelier',
       description: 'Sponsorisé par RESMED',
@@ -227,7 +234,7 @@ export const SESSIONS_DATA: Session[] = [
       startTime: new Date(2025, 9, 10, 9, 0),
       endTime: new Date(2025, 9, 10, 10, 30),
       location: 'Salle C',
-      speakers: [{ name: 'Nadia KESKES BOUDAOUARA', specialty: 'Pneumologie' }],
+      speakers: [{ name: 'Nadia KESKES BOUDAOUARA', specialty: 'Pneumologie' }, {name: 'Houda SNENE', specialty:''}],
       theme: 'SAHOS',
       type: 'atelier',
       description: 'Ateliers en parallèle',
@@ -432,7 +439,7 @@ export const SESSIONS_DATA: Session[] = [
       id: 'j2-10',
       title: 'De l\'insomnie à l\'hypersomnie : quoi de neuf ?',
       startTime: new Date(2025, 9, 10, 17, 0),
-      endTime: new Date(2025, 9, 10, 18, 30),
+      endTime: new Date(2025, 9, 10, 18, 0),
       location: 'Salle plénière',
       speakers: [
         { name: 'Rim RAFRAFI', specialty: 'Psychiatre', role: 'Chef du Service de Psychiatrie - Hôpital Mongi Slim Marsa' },
@@ -454,9 +461,9 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j2-11',
-      title: 'Symposium 2',
-      startTime: new Date(2025, 9, 10, 18, 30),
-      endTime: new Date(2025, 9, 10, 19, 0),
+      title: 'Symposium MESDAM',
+      startTime: new Date(2025, 9, 10, 18, 0),
+      endTime: new Date(2025, 9, 10, 19, 40),
       location: 'Salle plénière',
       speakers: [],
       theme: 'Symposium',
@@ -472,7 +479,7 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j2-12',
-      title: 'Animation et Remise des prix des meilleurs projets de recherche',
+      title: 'Soirée et remise des prix des meilleurs projets de recherche',
       startTime: new Date(2025, 9, 10, 20, 0),
       endTime: new Date(2025, 9, 10, 23, 0),
       location: 'Salle de gala',
@@ -597,14 +604,15 @@ export const SESSIONS_DATA: Session[] = [
       location: 'Salle plénière',
       speakers: [
         { name: 'Fatma KAMMOUN', specialty: 'Neuro-pédiatre', role: 'Service de Neuropédiatrie - Hôpital Hedi Chaker Sfax' },
-        { name: 'Amina GARGOURI', specialty: 'Neurologue', role: 'Service de Neurologie - Hôpital Razi Mannouba' }
+        { name: 'Amina GARGOURI', specialty: 'Neurologue', role: 'Service de Neurologie - Hôpital Razi Mannouba' },
+        { name: 'Istabrak ABDELKAFI', specialty: 'Pneumologie' }
       ],
       theme: 'Neurologie',
       type: 'séance',
       description: 'Une association dangereuse',
       details: [
-        'C10 : Sommeil et épilepsie : des interactions réciproques - Fatma KAMMOUN',
-        'C11 : Troubles du comportement du sommeil paradoxal (TCSP) : un symptôme avant-coureur des maladies neurodégénératives ? - Amina GARGOURI'
+        'C9 : Sommeil et épilepsie : des interactions réciproques - Fatma KAMMOUN',
+        'C10 : Troubles du comportement du sommeil paradoxal (TCSP) : un symptôme avant-coureur des maladies neurodégénératives ? - Amina GARGOURI, Istabrak ABDELKAFI'
       ],
       introduction: "Cette session explore les liens bidirectionnels et souvent complexes entre le sommeil et les maladies neurologiques. Les discussions porteront sur les interactions entre sommeil et épilepsie, ainsi que sur le rôle du trouble du comportement en sommeil paradoxal (TCSP) comme marqueur précoce de maladies neurodégénératives.",
       objectives: [
@@ -615,7 +623,7 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j3-3',
-      title: 'Symposium 3',
+      title: 'Symposium STALLERGENE',
       startTime: new Date(2025, 9, 11, 11, 30),
       endTime: new Date(2025, 9, 11, 12, 0),
       location: 'Salle plénière',
@@ -640,14 +648,14 @@ export const SESSIONS_DATA: Session[] = [
       speakers: [
         { name: 'Fatma CHARFI', specialty: 'Pédo-psychiatre', role: 'Chef de Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' },
         { name: 'Randoline AYOUB', specialty: 'Pédo-psychiatre', role: 'Service de Pédo-psychiatrie - Hôpital Fatouma Bourguiba Monastir' },
-        { name: 'Laures Meddouri', specialty: 'Pédo-psychiatre', role: 'Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' }
+        { name: 'Laures MADDOURI', specialty: 'Pédo-psychiatre', role: 'Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' }
       ],
       theme: 'Pédiatrie',
       type: 'séance',
       description: '',
       details: [
-        'C12: Insomnie chez l\'enfant et l\'adolescent : causes et solutions - Fatma CHARFI',
-        'C13 : Troubles du sommeil et TDAH : l\'œuf ou la poule ? - Randoline AYOUB'
+        'C11: Insomnie chez l\'enfant et l\'adolescent : causes et solutions - Fatma CHARFI, Laures MADDOURI',
+        'C12 : Troubles du sommeil et TDAH : l\'œuf ou la poule ? - Randoline AYOUB'
       ],
       introduction: "Les troubles du sommeil pédiatriques ont des répercussions majeures sur le développement et le fonctionnement de l'enfant. Cette session se penchera sur les causes et solutions de l'insomnie pédiatrique et explorera la relation complexe et souvent débattue entre les troubles du sommeil et le TDAH.",
       objectives: [
