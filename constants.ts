@@ -100,8 +100,8 @@ export const SESSIONS_DATA: Session[] = [
     {
       id: 'j1-3',
       title: 'La polygraphie ventilatoire de A à Z',
-      startTime: new Date(2025, 9, 9, 9, 30),
-      endTime: new Date(2025, 9, 9, 17, 30),
+      startTime: new Date(2025, 9, 9, 10, 0),
+      endTime: new Date(2025, 9, 9, 18, 0),
       location: 'Salle B',
       speakers: [
         { name: 'Imen SAHNOUN', specialty: 'Pneumologue' },
@@ -113,29 +113,7 @@ export const SESSIONS_DATA: Session[] = [
       theme: 'Formation',
       type: 'formation',
       description: 'Public : Résidents & médecins de toutes spécialités. Participants : 30 maximum.',
-      details: [
-        'Matinée – Adulte',
-        '9h30 – 9h45: Accueil, présentation & pré-test',
-        '9h45 – 10h10: Indications, mise en place & critères de qualité (démonstration live sur polygraphe Nox)',
-        '10h10 – 10h30: Reconnaissance des signaux : ventilation, efforts, oxymétrie, micro-éveils',
-        '10h30 – 10h50: Profils ventilatoires nocturnes & au-delà de l’IAH',
-        '10h50 – 11h10: Pause-café',
-        '11h10 – 11h30: Lecture en plénière d’un tracé adulte (démonstration guidée, commentaires en direct)',
-        '11h30 – 12h00: Lecture en plénière puis autonomie – Cas n°1 (SAHOS sévère) en sous-groupes',
-        '12h00 – 12h30: Lecture en plénière puis autonomie – Cas n°2 (SAHOS + SOH) en sous-groupes',
-        '12h30 – 13h00: Lecture en plénière puis autonomie – Cas n°3 (SAHCS sévère avec RCS)',
-        '13h00 – 14h00: Déjeuner',
-        '14h00 – 14h30: Atelier “Rédaction de rapport” à partir des cas lus',
-        'Après-midi – Adulte (suite)',
-        '14h30– 14h50: Atelier “Pièges & astuces” : artefacts et situations atypiques',
-        '14h50 – 15h05: Pause-café',
-        'Fin d’après-midi – Enfant',
-        '15h05 – 15h30: Particularités pédiatriques : indications, scorage, pièges',
-        '15h30 – 15h50: Lecture en plénière d’un tracé pédiatrique (démonstration guidée)',
-        '15h50 – 16h30: Lecture en plénière puis autonomie – Cas n°5 (SAHOS pédiatrique) en sous-groupes',
-        '16h30 – 16h50: Quiz interactif : “Pièges en polygraphie pédiatrique”',
-        '16h50 – 17h30: Post-test, remise des attestations & conclusion'
-      ],
+      details: [],
       isParallel: true,
       introduction: "Cette formation intensive a pour but de fournir une expertise pratique dans la lecture des polygraphies ventilatoires pour adultes et enfants. La méthodologie est axée sur la pratique avec des démonstrations, un travail en sous-groupes sur des cas réels, et un encadrement par des experts pour un feedback individualisé.",
       objectives: [
@@ -266,20 +244,6 @@ export const SESSIONS_DATA: Session[] = [
         "Initier une prise en charge de première intention (hygiène du sommeil, TCC-I, prescription raisonnée)."
       ]
     },
-     {
-      id: 'j2-pause1',
-      title: 'Pause café & Visite des stands',
-      startTime: new Date(2025, 9, 10, 10, 30),
-      endTime: new Date(2025, 9, 10, 10, 45),
-      location: 'Espace exposition',
-      speakers: [],
-      theme: 'Pause',
-      type: 'pause',
-      description: '',
-      details: [],
-      introduction: "Un moment de détente et de réseautage. Profitez-en pour prendre un café, échanger avec vos confrères et visiter les stands de nos partenaires pour découvrir les dernières innovations.",
-      objectives: []
-    },
     {
       id: 'j2-2',
       title: 'Mot d\'ouverture',
@@ -326,14 +290,14 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j2-4',
-      title: 'Symposium 1 : VNI chez les patients neuromusculaires',
+      title: 'Symposium AIR LIQUIDE',
       startTime: new Date(2025, 9, 10, 12, 30),
       endTime: new Date(2025, 9, 10, 13, 0),
       location: 'Salle plénière',
       speakers: [{ name: 'Claudia LLONTOP', specialty: 'Pneumologue', role: "Unité ambulatoire d'appareillage respiratoire de domicile - Groupe Hospitalier Pitié-Salpêtrière Paris" }],
       theme: 'VNI',
       type: 'symposium',
-      description: 'Conseils pratiques et partage d\'expériences.',
+      description: 'VNI chez les patients neuromusculaires : conseils pratiques et partage d’expériences.',
       details: [],
       introduction: "Ce symposium est dédié à l'utilisation de la ventilation non invasive (VNI) chez les patients atteints de maladies neuromusculaires. À travers des conseils pratiques et le partage d'expériences cliniques, cette session vise à optimiser l'initiation et le suivi de la VNI dans cette population fragile.",
       objectives: [
@@ -461,14 +425,14 @@ export const SESSIONS_DATA: Session[] = [
     },
     {
       id: 'j2-11',
-      title: 'Symposium MESDAM',
+      title: 'Symposium BMC médical',
       startTime: new Date(2025, 9, 10, 18, 0),
       endTime: new Date(2025, 9, 10, 19, 40),
       location: 'Salle plénière',
-      speakers: [],
+      speakers: [{ name: 'Dr Julien Favier', specialty: ''}],
       theme: 'Symposium',
       type: 'symposium',
-      description: '',
+      description: 'Apnée du sommeil : fardeau caché, enjeux diagnostiques et thérapeutiques',
       details: [],
       introduction: "Un symposium dédié à un sujet d'actualité en médecine du sommeil, présenté par nos partenaires industriels. L'occasion de découvrir les dernières innovations technologiques ou thérapeutiques.",
       objectives: [
@@ -622,28 +586,10 @@ export const SESSIONS_DATA: Session[] = [
       ]
     },
     {
-      id: 'j3-3',
-      title: 'Symposium STALLERGENE',
-      startTime: new Date(2025, 9, 11, 11, 30),
-      endTime: new Date(2025, 9, 11, 12, 0),
-      location: 'Salle plénière',
-      speakers: [],
-      theme: 'Symposium',
-      type: 'symposium',
-      description: '',
-      details: [],
-      introduction: "Un symposium de pointe présentant les dernières avancées dans un domaine spécifique de la médecine du sommeil, en collaboration avec nos partenaires. Une opportunité unique de se tenir informé des dernières recherches et innovations.",
-      objectives: [
-        "Diffuser les résultats de recherches récentes et pertinentes.",
-        "Présenter une nouvelle technologie ou approche thérapeutique.",
-        "Stimuler la discussion sur les futures orientations de la recherche et de la pratique clinique."
-      ]
-    },
-    {
       id: 'j3-4',
       title: 'Petit patient, grand impact : troubles du sommeil chez l\'enfant et l\'adolescent',
-      startTime: new Date(2025, 9, 11, 12, 0),
-      endTime: new Date(2025, 9, 11, 13, 0),
+      startTime: new Date(2025, 9, 11, 11, 30),
+      endTime: new Date(2025, 9, 11, 12, 30),
       location: 'Salle plénière',
       speakers: [
         { name: 'Fatma CHARFI', specialty: 'Pédo-psychiatre', role: 'Chef de Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' },
@@ -667,8 +613,8 @@ export const SESSIONS_DATA: Session[] = [
     {
       id: 'j3-5',
       title: 'Remise des prix des meilleurs communications et posters',
-      startTime: new Date(2025, 9, 11, 13, 0),
-      endTime: new Date(2025, 9, 11, 14, 0),
+      startTime: new Date(2025, 9, 11, 12, 30),
+      endTime: new Date(2025, 9, 11, 13, 30),
       location: 'Salle plénière',
       speakers: [],
       theme: 'Cérémonie',
