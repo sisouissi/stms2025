@@ -273,6 +273,7 @@ export const SESSIONS_DATA: Session[] = [
         { name: 'Sonia MAALEJ', specialty: 'Pneumologue', role: 'Chef du Service de Pneumologie Pavillon I - Hôpital Abderrahmen Mami Ariana' },
         { name: 'Rahma GARGOURI', specialty: 'Pneumologue', role: 'Service de Pneumologie - Hôpital Hedi Chaker Sfax' }
       ],
+      moderators: ['Mohamed TURKI', 'Lilia MASMOUDI', 'Hafaoua DAGHFOUS'],
       theme: 'Hypoventilation',
       type: 'séance',
       description: '',
@@ -295,6 +296,7 @@ export const SESSIONS_DATA: Session[] = [
       endTime: new Date(2025, 9, 10, 13, 0),
       location: 'Salle plénière',
       speakers: [{ name: 'Claudia LLONTOP', specialty: 'Pneumologue', role: "Unité ambulatoire d'appareillage respiratoire de domicile - Groupe Hospitalier Pitié-Salpêtrière Paris" }],
+      moderators: ['Leila DOUIK EL GHARBI'],
       theme: 'VNI',
       type: 'symposium',
       description: 'VNI chez les patients neuromusculaires : conseils pratiques et partage d’expériences.',
@@ -328,6 +330,7 @@ export const SESSIONS_DATA: Session[] = [
       endTime: new Date(2025, 9, 10, 14, 30),
       location: 'Salle A',
       speakers: [],
+      moderators: ['Nadia ROMDHANE', 'Ibtihel KHOUAJA', 'Sana AISSA'],
       theme: 'Recherche',
       type: 'communications',
       description: '',
@@ -347,6 +350,7 @@ export const SESSIONS_DATA: Session[] = [
       endTime: new Date(2025, 9, 10, 14, 30),
       location: 'Salle B',
       speakers: [],
+      moderators: ['Sonia ROUATBI', 'Hafaoua DAGHFOUS', 'Leila BOUSSOUFFARA'],
       theme: 'Recherche',
       type: 'séance',
       description: '',
@@ -370,6 +374,7 @@ export const SESSIONS_DATA: Session[] = [
         { name: 'Samira MHAMDI', specialty: 'Pneumologue', role: 'Service de Pneumologie - Hôpital Militaire de Tunis' },
         { name: 'Mohamed TURKI', specialty: 'Pneumologue', role: 'Past-Président de la STMS' }
       ],
+      moderators: ['Chiraz AICHAOUIA', 'Olfa BERRICH', 'Anis MAATALLAH'],
       theme: 'SAHOS',
       type: 'séance',
       description: '',
@@ -409,6 +414,7 @@ export const SESSIONS_DATA: Session[] = [
         { name: 'Rim RAFRAFI', specialty: 'Psychiatre', role: 'Chef du Service de Psychiatrie - Hôpital Mongi Slim Marsa' },
         { name: 'Isabelle ARNULF', specialty: 'Neurologue', role: 'Chef du Service des Pathologies du Sommeil - Groupe Hospitalier Pitié-Salpêtrière Paris' }
       ],
+      moderators: ['Maher ABOUDA', 'Mouna BEN DJEBARA', 'Sonia HAMMAMI'],
       theme: 'Insomnie',
       type: 'séance',
       description: '',
@@ -430,6 +436,7 @@ export const SESSIONS_DATA: Session[] = [
       endTime: new Date(2025, 9, 10, 18, 40),
       location: 'Salle plénière',
       speakers: [{ name: 'Dr Julien Favier', specialty: ''}],
+      moderators: ['Sonia MAALEJ'],
       theme: 'Symposium',
       type: 'symposium',
       description: 'Apnée du sommeil : fardeau caché, enjeux diagnostiques et thérapeutiques',
@@ -571,6 +578,7 @@ export const SESSIONS_DATA: Session[] = [
         { name: 'Amina GARGOURI', specialty: 'Neurologue', role: 'Service de Neurologie - Hôpital Razi Mannouba' },
         { name: 'Istabrak ABDELKAFI', specialty: 'Pneumologie' }
       ],
+      moderators: ['Chahnez TRIKI', 'Sameh MSAAD'],
       theme: 'Neurologie',
       type: 'séance',
       description: 'Une association dangereuse',
@@ -596,6 +604,7 @@ export const SESSIONS_DATA: Session[] = [
         { name: 'Randoline AYOUB', specialty: 'Pédo-psychiatre', role: 'Service de Pédo-psychiatrie - Hôpital Fatouma Bourguiba Monastir' },
         { name: 'Laures MADDOURI', specialty: 'Pédo-psychiatre', role: 'Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' }
       ],
+      moderators: ['Chahnez TRIKI', 'Ines TRABELSI'],
       theme: 'Pédiatrie',
       type: 'séance',
       description: '',

@@ -56,14 +56,17 @@ const ProgrammePage: React.FC<ProgrammePageProps> = ({ setActiveTab, searchSelec
         session.title.toLowerCase().includes(query) ||
         session.theme.toLowerCase().includes(query) ||
         session.type.toLowerCase().includes(query) ||
-        session.speakers.some(s => s.name.toLowerCase().includes(query) || (s.role && s.role.toLowerCase().includes(query)))
+        session.speakers.some(s => s.name.toLowerCase().includes(query) || (s.role && s.role.toLowerCase().includes(query))) ||
+        session.moderators?.some(m => m.toLowerCase().includes(query))
       );
     }
 
     return sessionsToFilter.filter(session => {
       const matchesTheme = !filters.theme || session.theme === filters.theme;
       const matchesType = !filters.type || session.type === filters.type;
-      const matchesSpeaker = !filters.speaker || session.speakers.some(speaker => speaker.name.toLowerCase().includes(filters.speaker.toLowerCase()) || (speaker.role && speaker.role.toLowerCase().includes(filters.speaker.toLowerCase())));
+      const matchesSpeaker = !filters.speaker || 
+        session.speakers.some(speaker => speaker.name.toLowerCase().includes(filters.speaker.toLowerCase()) || (speaker.role && speaker.role.toLowerCase().includes(filters.speaker.toLowerCase()))) ||
+        session.moderators?.some(moderator => moderator.toLowerCase().includes(filters.speaker.toLowerCase()));
       return matchesTheme && matchesType && matchesSpeaker;
     });
   }, [selectedDay, filters, searchQuery]);

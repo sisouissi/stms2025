@@ -1,9 +1,10 @@
 
+
 import React from 'react';
 import type { Session } from '../../types';
 import { getThemeColor } from '../../constants';
 import { useAgenda } from '../../context/AgendaContext';
-import { Heart, Plus, Check, Clock, MapPin, Users } from 'lucide-react';
+import { Heart, Plus, Check, Clock, MapPin, Users, Shield } from 'lucide-react';
 
 interface SessionCardProps {
   session: Session;
@@ -56,6 +57,12 @@ const SessionCard: React.FC<SessionCardProps> = ({ session, onCardClick }) => {
              <div className="flex items-start">
                 <Users size={14} className="mr-2.5 text-slate-400 flex-shrink-0 mt-0.5" />
                 <span>{session.speakers.map(s => s.name).join(', ')}</span>
+             </div>
+           )}
+           {session.moderators && session.moderators.length > 0 && (
+             <div className="flex items-start">
+                <Shield size={14} className="mr-2.5 text-slate-400 flex-shrink-0 mt-0.5" />
+                <span><span className="font-semibold">Modération :</span> {session.moderators.join(', ')}</span>
              </div>
            )}
            {session.description && (

@@ -12,6 +12,7 @@ export interface Session {
   endTime: Date;
   location: string;
   speakers: Speaker[];
+  moderators?: string[];
   theme: string;
   type: string;
   description: string;

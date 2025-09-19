@@ -2,7 +2,7 @@ import React from 'react';
 import type { Session } from '../../types';
 import { getThemeColor } from '../../constants';
 import { useAgenda } from '../../context/AgendaContext';
-import { X, Check, Plus, Heart } from 'lucide-react';
+import { X, Check, Plus, Heart, Shield } from 'lucide-react';
 
 interface SessionModalProps {
   session: Session;
@@ -76,6 +76,26 @@ const SessionModal: React.FC<SessionModalProps> = ({ session, onClose }) => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+              {session.moderators && session.moderators.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                    <Shield size={20} className="text-slate-500" />
+                    Modération
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {session.moderators.map((moderator, index) => (
+                      <div key={index} className="flex items-start p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <div className="w-12 h-12 bg-gradient-to-br from-slate-400 to-slate-600 rounded-full flex items-center justify-center text-lg font-medium text-white flex-shrink-0 mt-1">
+                          {moderator.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div className="ml-4 flex-1">
+                          <div className="font-semibold text-slate-900">{moderator}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
               {session.speakers.length > 0 && (
