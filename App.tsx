@@ -4,7 +4,6 @@ import ProgrammePage from './pages/ProgrammePage';
 import AgendaPage from './pages/AgendaPage';
 import SpeakersPage from './pages/SpeakersPage';
 import InfoPage from './pages/InfoPage';
-import SubmissionPage from './pages/SubmissionPage';
 import ScientificCommitteePage from './pages/ScientificCommitteePage';
 import MobileNavBar from './components/layout/MobileNavBar';
 import Header from './components/layout/Header';
@@ -16,7 +15,7 @@ import LiveStreamPage from './pages/LiveStreamPage';
 import ModeratorPage from './pages/ModeratorPage';
 import AuthModal from './components/auth/AuthModal';
 
-export type Tab = 'home' | 'programme' | 'agenda' | 'speakers' | 'info' | 'submission' | 'committee' | 'livestream';
+export type Tab = 'home' | 'programme' | 'agenda' | 'speakers' | 'info' | 'committee' | 'livestream';
 
 const AppContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('home');
@@ -67,8 +66,6 @@ const AppContent: React.FC = () => {
         return <SpeakersPage setActiveTab={setActiveTab} />;
       case 'committee':
         return <ScientificCommitteePage setActiveTab={setActiveTab} />;
-      case 'submission':
-        return <SubmissionPage setActiveTab={setActiveTab} />;
       case 'info':
         return <InfoPage setActiveTab={setActiveTab} />;
       case 'livestream':

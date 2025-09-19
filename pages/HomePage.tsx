@@ -155,13 +155,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
                         <Edit size={20} />
                         <span className="font-semibold">S'inscrire</span>
                     </a>
-                    <button
-                        onClick={() => setActiveTab('submission')}
-                        className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm text-[#033238] px-6 py-3.5 rounded-full shadow-md hover:shadow-lg border border-slate-200 hover:bg-white transition-all duration-300 transform hover:scale-105"
-                    >
-                        <FileText size={20} />
-                        <span className="font-semibold">Soumettre</span>
-                    </button>
                     <a
                         href="https://drive.google.com/file/d/1XICEmcJsujhO5jps942V1Rx90tYe3F5m/view?usp=drive_link"
                         target="_blank"
@@ -174,7 +167,7 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
                     <button
                         onClick={handleShareApp}
                         disabled={isAppUrlCopied}
-                        className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm text-[#033238] px-6 py-3.5 rounded-full shadow-md hover:shadow-lg border border-slate-200 hover:bg-white transition-all duration-300 transform hover:scale-105 disabled:opacity-70"
+                        className="sm:col-span-2 flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm text-[#033238] px-6 py-3.5 rounded-full shadow-md hover:shadow-lg border border-slate-200 hover:bg-white transition-all duration-300 transform hover:scale-105 disabled:opacity-70"
                     >
                         {isAppUrlCopied ? <Check size={20} /> : <Share2 size={20} />}
                         <span className="font-semibold">{isAppUrlCopied ? 'Lien copié !' : 'Partager l\'app'}</span>
