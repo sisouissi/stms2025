@@ -14,8 +14,10 @@ import { useLiveStreamStatus } from './hooks/useLiveStreamStatus';
 import LiveStreamPage from './pages/LiveStreamPage';
 import ModeratorPage from './pages/ModeratorPage';
 import AuthModal from './components/auth/AuthModal';
+import CommunicationsPage from './pages/CommunicationsPage';
+import OralCommunicationsPage from './pages/OralCommunicationsPage';
 
-export type Tab = 'home' | 'programme' | 'agenda' | 'speakers' | 'info' | 'committee' | 'livestream';
+export type Tab = 'home' | 'programme' | 'agenda' | 'speakers' | 'posters' | 'orals' | 'info' | 'committee' | 'livestream';
 
 const AppContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('home');
@@ -64,6 +66,10 @@ const AppContent: React.FC = () => {
         return <AgendaPage setActiveTab={setActiveTab} />;
       case 'speakers':
         return <SpeakersPage setActiveTab={setActiveTab} />;
+      case 'posters':
+        return <CommunicationsPage setActiveTab={setActiveTab} />;
+      case 'orals':
+        return <OralCommunicationsPage setActiveTab={setActiveTab} />;
       case 'committee':
         return <ScientificCommitteePage setActiveTab={setActiveTab} />;
       case 'info':
@@ -87,7 +93,8 @@ const AppContent: React.FC = () => {
       {activeSession && (
         <SessionModal 
           session={activeSession} 
-          onClose={hideSessionModal} 
+          onClose={hideSessionModal}
+          setActiveTab={setActiveTab}
         />
       )}
       {showAuthModal && (

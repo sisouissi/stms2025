@@ -1,4 +1,5 @@
 
+
 export interface Speaker {
   name: string;
   specialty: string;
@@ -32,4 +33,12 @@ export interface Filters {
   theme: string;
   type: string;
   speaker: string;
+}
+
+export interface Poster {
+  id: string;
+  title: string;
+  authors: string;
+  affiliation: string;
+  summary?: string;
 }

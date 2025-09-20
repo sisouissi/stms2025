@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Tab } from '../../App';
-import { Home, CalendarDays, CalendarCheck, Users, Info, Youtube, Shield, Award } from 'lucide-react';
+import { Home, CalendarDays, CalendarCheck, Users, Info, Youtube, Shield, Award, FileText } from 'lucide-react';
 
 interface MobileNavBarProps {
   activeTab: Tab;
@@ -52,8 +52,14 @@ const MobileNavBar: React.FC<MobileNavBarProps> = ({ activeTab, setActiveTab, is
     navItems.splice(2, 0, { key: 'livestream', label: 'Direct', icon: <Youtube size={22} /> });
   }
 
+  // To keep a balanced number of items, we adjust based on live status.
+  // The goal is to have an even number for better layout, or handle overflow.
+  // For now, we will let it grow. A more complex solution could group items.
+  const mainItems = navItems.slice(0, 4);
+  const secondaryItems = navItems.slice(4);
+
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-white/90 backdrop-blur-lg border-t border-slate-200 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.05)] flex items-center justify-around z-50">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-white/90 backdrop-blur-lg border-t border-slate-200 shadow-[0_-5px_15px_-5px_rgba(0,0,0,0.05)] flex items-stretch justify-around z-50">
       {navItems.map((item) => (
         <NavItem
           key={item.key}

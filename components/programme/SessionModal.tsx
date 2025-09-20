@@ -2,14 +2,16 @@ import React from 'react';
 import type { Session } from '../../types';
 import { getThemeColor } from '../../constants';
 import { useAgenda } from '../../context/AgendaContext';
-import { X, Check, Plus, Heart, Shield } from 'lucide-react';
+import { X, Check, Plus, Heart, Shield, Mic } from 'lucide-react';
+import type { Tab } from '../../App';
 
 interface SessionModalProps {
   session: Session;
   onClose: () => void;
+  setActiveTab: (tab: Tab) => void;
 }
 
-const SessionModal: React.FC<SessionModalProps> = ({ session, onClose }) => {
+const SessionModal: React.FC<SessionModalProps> = ({ session, onClose, setActiveTab }) => {
   const { 
     personalAgenda, 
     favorites, 
@@ -76,6 +78,20 @@ const SessionModal: React.FC<SessionModalProps> = ({ session, onClose }) => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              )}
+               {session.id === 'j2-6' && (
+                <div className="mt-4 mb-2">
+                    <button
+                        onClick={() => {
+                            onClose();
+                            setActiveTab('orals');
+                        }}
+                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-amber-500 to-orange-600 text-white px-6 py-3 rounded-lg hover:from-amber-600 hover:to-orange-700 transition-all duration-300 font-semibold shadow-md hover:shadow-lg"
+                    >
+                        <Mic size={18} />
+                        Voir toutes les communications orales
+                    </button>
                 </div>
               )}
               {session.moderators && session.moderators.length > 0 && (

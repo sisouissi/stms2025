@@ -5,7 +5,7 @@ import CountdownDisplay from '../components/ui/CountdownDisplay';
 import SearchResults from '../components/home/SearchResults';
 import { SESSIONS_DATA } from '../constants';
 import type { Session } from '../types';
-import { Search, Download, Calendar, MapPin, Mail, FileText, Edit, CheckCircle2, Share2, Check } from 'lucide-react';
+import { Search, Download, Calendar, MapPin, Mail, FileText, Edit, CheckCircle2, Share2, Check, Mic } from 'lucide-react';
 import { usePWAInstall } from '../context/PWAInstallContext';
 import LiveSessions from '../components/home/LiveSessions';
 import DailyBriefing from '../components/home/DailyBriefing';
@@ -164,6 +164,20 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveTab, onSessionSelect }) =>
                         <Download size={20} />
                         <span className="font-semibold">Télécharger le Programme</span>
                     </a>
+                    <button
+                        onClick={() => setActiveTab('posters')}
+                        className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm text-[#033238] px-6 py-3.5 rounded-full shadow-md hover:shadow-lg border border-slate-200 hover:bg-white transition-all duration-300 transform hover:scale-105"
+                    >
+                        <FileText size={20} />
+                        <span className="font-semibold">Posters</span>
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('orals')}
+                        className="flex items-center justify-center gap-2 bg-white/80 backdrop-blur-sm text-[#033238] px-6 py-3.5 rounded-full shadow-md hover:shadow-lg border border-slate-200 hover:bg-white transition-all duration-300 transform hover:scale-105"
+                    >
+                        <Mic size={20} />
+                        <span className="font-semibold">Comm. Orales</span>
+                    </button>
                     <button
                         onClick={handleShareApp}
                         disabled={isAppUrlCopied}
