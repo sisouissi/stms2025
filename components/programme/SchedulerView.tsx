@@ -7,7 +7,19 @@ interface SchedulerViewProps {
   onSessionClick: (session: Session) => void;
 }
 
-const LOCATIONS = ['Salle plénière', 'Salle A', 'Salle B', 'Salle C', 'Salle D', 'Restaurant', 'Hall d\'accueil', 'Espace exposition'];
+const LOCATIONS = [
+    'Salle Nefertiti', 
+    'Salle Cesar', 
+    'Salle Cesarion', 
+    'Salle Luxor', 
+    'Salle Sphynx',
+    'Salle Carthage 1', 
+    'Salle Carthage 2',
+    'Salle Al Hambra',
+    'Restaurant', 
+    'Hall d\'accueil', 
+    'Espace exposition'
+];
 
 const generateTimeSlots = (startHour: number, endHour: number, intervalMinutes: number): string[] => {
     const slots = [];

@@ -110,7 +110,8 @@ interface LiveSessionsProps {
 const LiveSessions: React.FC<LiveSessionsProps> = ({ currentSessions, nextSession, onSessionClick }) => {
     const hasCurrent = currentSessions && currentSessions.length > 0;
 
-    const renderableItems: JSX.Element[] = [];
+    // FIX: Cannot find namespace 'JSX'.
+    const renderableItems: React.ReactElement[] = [];
 
     if (hasCurrent) {
         currentSessions.forEach(session => {

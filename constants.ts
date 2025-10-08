@@ -75,7 +75,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'La polysomnographie chez l\'adulte : de l\'initiation à la maîtrise',
       startTime: new Date(2025, 9, 9, 10, 0),
       endTime: new Date(2025, 9, 9, 18, 0),
-      location: 'Salle A',
+      location: 'Salle Carthage 1',
       speakers: [
         { name: 'Fida ALLAYA', specialty: 'Neuro-physiologiste', role: 'CHU de Clermont-Ferrand France' },
         { name: 'Ikram ALOULOU', specialty: 'Physiologiste', role: 'Service de Physiologie - Hôpital Abderrahmen Mami Ariana' },
@@ -100,7 +100,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'La polygraphie ventilatoire de A à Z',
       startTime: new Date(2025, 9, 9, 10, 0),
       endTime: new Date(2025, 9, 9, 18, 0),
-      location: 'Salle B',
+      location: 'Salle Carthage 2',
       speakers: [
         { name: 'Imen SAHNOUN', specialty: 'Pneumologue' },
         { name: 'Hana MRASSI', specialty: 'Pneumologue', role: 'Service de Pneumologie D - Hôpital Abderrahmen Mami Ariana' },
@@ -127,7 +127,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Suivi pratique d\'un patient sous VNI : interprétation des rapports et des courbes',
       startTime: new Date(2025, 9, 9, 15, 0),
       endTime: new Date(2025, 9, 9, 17, 0),
-      location: 'Salle C',
+      location: 'Salle Al Hambra',
       speakers: [{ name: 'Claudia LLONTOP', specialty: 'Pneumologue', role: "Unité ambulatoire d'appareillage respiratoire de domicile - Groupe Hospitalier Pitié-Salpêtrière Paris" }],
       theme: 'VNI',
       type: 'atelier',
@@ -166,7 +166,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A1 : Les effets secondaires de la PPC : vers une gestion personnalisée',
       startTime: new Date(2025, 9, 10, 9, 0),
       endTime: new Date(2025, 9, 10, 10, 30),
-      location: 'Salle A',
+      location: 'Salle Cesar',
       speakers: [
         { name: 'Houda ROUIS', specialty: 'Pneumologue', role: 'Service de Pneumolgie D - Hôpital Abderrahmen Mami Ariana' },
         { name: 'Ines MOUSSA', specialty: 'Pneumologue', role: 'Service de Pneumolgie D - Hôpital Abderrahmen Mami Ariana' }
@@ -188,7 +188,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A2 : Masques VNI en 2025 : choix, mise en place et entretien',
       startTime: new Date(2025, 9, 10, 9, 0),
       endTime: new Date(2025, 9, 10, 10, 30),
-      location: 'Salle B',
+      location: 'Salle Cesarion',
       speakers: [
         { name: 'Christophe JOIGNEAU', specialty: '' }
       ],
@@ -209,7 +209,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A3 : SAHS central et combiné : optimisation de la prise en charge',
       startTime: new Date(2025, 9, 10, 9, 0),
       endTime: new Date(2025, 9, 10, 10, 30),
-      location: 'Salle C',
+      location: 'Salle Luxor',
       speakers: [{ name: 'Nadia KESKES BOUDAOUARA', specialty: 'Pneumologie' }, {name: 'Houda SNENE', specialty:''}],
       theme: 'SAHOS',
       type: 'atelier',
@@ -228,7 +228,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A4 : Insomnie en médecine de première ligne : de la plainte au traitement',
       startTime: new Date(2025, 9, 10, 9, 0),
       endTime: new Date(2025, 9, 10, 10, 30),
-      location: 'Salle D',
+      location: 'Salle Sphynx',
       speakers: [{ name: 'Rim RAFRAFI', specialty: 'Psychiatre', role: 'Chef du Service de Psychiatrie - Hôpital Mongi Slim Marsa' }],
       theme: 'Insomnie',
       type: 'atelier',
@@ -247,7 +247,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Mot d\'ouverture',
       startTime: new Date(2025, 9, 10, 10, 45),
       endTime: new Date(2025, 9, 10, 11, 0),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [{ name: 'Leila DOUIK EL GHARBI', specialty: 'Pneumologue', role: 'Chef du Service de Pneumologie Pavillon D - Hôpital Abderrahmen Mami Ariana' }],
       theme: 'Accueil',
       type: 'cérémonie',
@@ -265,7 +265,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Hypoventilation et hypoxémie liées au sommeil chez l\'adulte (Séance en collaboration avec la STMRA)',
       startTime: new Date(2025, 9, 10, 11, 0),
       endTime: new Date(2025, 9, 10, 12, 30),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [
         { name: 'Maher ABOUDA', specialty: 'Pneumologue', role: 'Chef du Service de Médecine à orientation Pneumologique du Centre Hospitalier Châteaudun' },
         { name: 'Sonia MAALEJ', specialty: 'Pneumologue', role: 'Chef du Service de Pneumologie Pavillon I - Hôpital Abderrahmen Mami Ariana' },
@@ -292,7 +292,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Symposium AIR LIQUIDE',
       startTime: new Date(2025, 9, 10, 12, 30),
       endTime: new Date(2025, 9, 10, 13, 0),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [{ name: 'Claudia LLONTOP', specialty: 'Pneumologue', role: "Unité ambulatoire d'appareillage respiratoire de domicile - Groupe Hospitalier Pitié-Salpêtrière Paris" }],
       moderators: ['Leila DOUIK EL GHARBI'],
       theme: 'VNI',
@@ -326,7 +326,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Communications orales',
       startTime: new Date(2025, 9, 10, 13, 0),
       endTime: new Date(2025, 9, 10, 14, 30),
-      location: 'Salle A',
+      location: 'Salle Cesar',
       speakers: [],
       moderators: ['Nadia ROMDHANE', 'Ibtihel KHOUAJA', 'Sana AISSA'],
       theme: 'Recherche',
@@ -354,7 +354,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Présentation de protocoles de recherche',
       startTime: new Date(2025, 9, 10, 13, 0),
       endTime: new Date(2025, 9, 10, 14, 30),
-      location: 'Salle B',
+      location: 'Salle Luxor',
       speakers: [],
       moderators: ['Sonia ROUATBI', 'Hafaoua DAGHFOUS', 'Leila BOUSSOUFFARA'],
       theme: 'Recherche',
@@ -374,7 +374,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Nouvelles approches thérapeutiques du SAHOS',
       startTime: new Date(2025, 9, 10, 15, 0),
       endTime: new Date(2025, 9, 10, 16, 30),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [
         { name: 'Zinet MARRAKCHI', specialty: 'Endocrinologie -Diabétologie', role: 'Libre pratique' },
         { name: 'Samira MHAMDI', specialty: 'Pneumologue', role: 'Service de Pneumologie - Hôpital Militaire de Tunis' },
@@ -415,7 +415,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'De l\'insomnie à l\'hypersomnie : quoi de neuf ?',
       startTime: new Date(2025, 9, 10, 17, 0),
       endTime: new Date(2025, 9, 10, 18, 0),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [
         { name: 'Rim RAFRAFI', specialty: 'Psychiatre', role: 'Chef du Service de Psychiatrie - Hôpital Mongi Slim Marsa' },
         { name: 'Isabelle ARNULF', specialty: 'Neurologue', role: 'Chef du Service des Pathologies du Sommeil - Groupe Hospitalier Pitié-Salpêtrière Paris' }
@@ -440,7 +440,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Symposium BMC médical',
       startTime: new Date(2025, 9, 10, 18, 0),
       endTime: new Date(2025, 9, 10, 18, 40),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [{ name: 'Dr Julien Favier', specialty: ''}],
       moderators: ['Sonia MAALEJ'],
       theme: 'Symposium',
@@ -479,7 +479,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A5: Hypersomnolence, hypersomnie, somnolence diurne excessive et fatigue chronique : faisons le point',
       startTime: new Date(2025, 9, 11, 8, 30),
       endTime: new Date(2025, 9, 11, 10, 0),
-      location: 'Salle A',
+      location: 'Salle Cesar',
       speakers: [
         { name: 'Fida ALLAYA', specialty: 'Neuro-physiologiste', role: 'CHU de Clermont-Ferrand France' },
         { name: 'Istabrak ABDELKAFI', specialty: 'Pneumologie' }
@@ -501,7 +501,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A6: Syndrome des jambes sans repos : quelles stratégies ?',
       startTime: new Date(2025, 9, 11, 8, 30),
       endTime: new Date(2025, 9, 11, 10, 0),
-      location: 'Salle B',
+      location: 'Salle Cesarion',
       speakers: [{ name: 'Isabelle ARNULF', specialty: 'Neurologue', role: 'Chef du Service des Pathologies du Sommeil - Groupe Hospitalier Pitié-Salpêtrière Paris' }],
       theme: 'Neurologie',
       type: 'atelier',
@@ -520,7 +520,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A7: Évaluation et rééducation des fonctions oro-myofaciales chez les patients SAHOS',
       startTime: new Date(2025, 9, 11, 8, 30),
       endTime: new Date(2025, 9, 11, 10, 0),
-      location: 'Salle C',
+      location: 'Salle Luxor',
       speakers: [
         { name: 'Syrine ABDENNADHER', specialty: 'Kinésithérapeute' },
         { name: 'Rim BEN JEMAA', specialty: 'Dentiste', role: 'Libre pratique' }
@@ -542,7 +542,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'A8: Troubles respiratoires obstructifs du sommeil (TROS) chez l\'enfant',
       startTime: new Date(2025, 9, 11, 8, 30),
       endTime: new Date(2025, 9, 11, 10, 0),
-      location: 'Salle D',
+      location: 'Salle Sphynx',
       speakers: [
         { name: 'Ines TRABELSI', specialty: 'Pédiatre', role: "Service de Pédiatrie Pavillon 4 - Hôpital d'enfants Bab Saadoun Tunis" },
         { name: 'Souha KALLEL', specialty: 'ORL', role: "Service d'ORL - Hôpital Hedi Chaker Sfax" }
@@ -578,7 +578,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Sommeil et maladies neurologiques chez l\'enfant et l\'adulte',
       startTime: new Date(2025, 9, 11, 10, 30),
       endTime: new Date(2025, 9, 11, 11, 30),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [
         { name: 'Fatma KAMMOUN', specialty: 'Neuro-pédiatre', role: 'Service de Neuropédiatrie - Hôpital Hedi Chaker Sfax' },
         { name: 'Amina GARGOURI', specialty: 'Neurologue', role: 'Service de Neurologie - Hôpital Razi Mannouba' },
@@ -604,7 +604,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Petit patient, grand impact : troubles du sommeil chez l\'enfant et l\'adolescent',
       startTime: new Date(2025, 9, 11, 11, 30),
       endTime: new Date(2025, 9, 11, 12, 30),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [
         { name: 'Fatma CHARFI', specialty: 'Pédo-psychiatre', role: 'Chef de Service de Pédopsychiatrie - Hôpital Mongi Slim Marsa' },
         { name: 'Randoline AYOUB', specialty: 'Pédo-psychiatre', role: 'Service de Pédo-psychiatrie - Hôpital Fatouma Bourguiba Monastir' },
@@ -630,7 +630,7 @@ export const SESSIONS_DATA: Session[] = [
       title: 'Remise des prix des meilleurs communications et posters',
       startTime: new Date(2025, 9, 11, 12, 30),
       endTime: new Date(2025, 9, 11, 13, 30),
-      location: 'Salle plénière',
+      location: 'Salle Nefertiti',
       speakers: [],
       theme: 'Cérémonie',
       type: 'cérémonie',

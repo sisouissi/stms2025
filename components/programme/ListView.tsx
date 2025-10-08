@@ -24,14 +24,15 @@ const ListView: React.FC<ListViewProps> = ({ sessions, onSessionClick }) => {
   }
 
   if (hasMultipleDays) {
-    const groupedByDay = sessions.reduce<Record<string, Session[]>>((acc, session) => {
+    const groupedByDay = sessions.reduce((acc, session) => {
         const dayKey = session.startTime.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
         if (!acc[dayKey]) {
           acc[dayKey] = [];
         }
         acc[dayKey].push(session);
         return acc;
-    }, {});
+    // FIX: Untyped function calls may not accept type arguments.
+    }, {} as Record<string, Session[]>);
     
     const dayKeys = Object.keys(groupedByDay);
 
@@ -39,14 +40,15 @@ const ListView: React.FC<ListViewProps> = ({ sessions, onSessionClick }) => {
         <div className="space-y-10">
             {dayKeys.map(dayKey => {
                 const daySessions = groupedByDay[dayKey];
-                const groupedByTime = daySessions.reduce<Record<string, Session[]>>((acc, session) => {
+                const groupedByTime = daySessions.reduce((acc, session) => {
                     const timeKey = session.startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                     if (!acc[timeKey]) {
                       acc[timeKey] = [];
                     }
                     acc[timeKey].push(session);
                     return acc;
-                }, {});
+                // FIX: Untyped function calls may not accept type arguments.
+                }, {} as Record<string, Session[]>);
                 const sortedTimeKeys = Object.keys(groupedByTime).sort();
                 
                 return (
@@ -74,14 +76,15 @@ const ListView: React.FC<ListViewProps> = ({ sessions, onSessionClick }) => {
     );
   }
 
-  const groupedSessions = sessions.reduce<Record<string, Session[]>>((acc, session) => {
+  const groupedSessions = sessions.reduce((acc, session) => {
     const timeKey = session.startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     if (!acc[timeKey]) {
       acc[timeKey] = [];
     }
     acc[timeKey].push(session);
     return acc;
-  }, {});
+  // FIX: Untyped function calls may not accept type arguments.
+  }, {} as Record<string, Session[]>);
 
   const sortedTimeKeys = Object.keys(groupedSessions).sort();
 
