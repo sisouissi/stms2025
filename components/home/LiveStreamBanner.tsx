@@ -11,8 +11,8 @@ const LiveStreamBanner: React.FC<LiveStreamBannerProps> = ({ onWatchLive }) => {
   const liveStreamTimes = [
     // Vendredi 10 octobre 2025 de 10h45 à 18h45
     { start: new Date('2025-10-10T10:45:00'), end: new Date('2025-10-10T18:45:00') },
-    // Samedi 11 octobre 2025 de 8h30 à 14h00
-    { start: new Date('2025-10-11T08:30:00'), end: new Date('2025-10-11T14:00:00') }
+    // Samedi 11 octobre 2025 de 10h30 à 13h30
+    { start: new Date('2025-10-11T10:30:00'), end: new Date('2025-10-11T13:30:00') }
   ];
 
   useEffect(() => {
